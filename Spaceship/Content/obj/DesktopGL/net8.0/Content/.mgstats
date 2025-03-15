@@ -1,0 +1,6 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/asteroid.png","C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/bin/DesktopGL/Content/asteroid.xnb","TextureProcessor","Texture2DContent",17495,53893,0.1699848
+"C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/ship.png","C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/bin/DesktopGL/Content/ship.xnb","TextureProcessor","Texture2DContent",3015,27285,0.0081705
+"C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/space.png","C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/bin/DesktopGL/Content/space.xnb","TextureProcessor","Texture2DContent",1018006,12582997,0.6195703
+"C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/spaceFont.spritefont","C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/bin/DesktopGL/Content/spaceFont.xnb","FontDescriptionProcessor","SpriteFontContent",2065,136226,1.0374923
+"C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/timerFont.spritefont","C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/bin/DesktopGL/Content/timerFont.xnb","FontDescriptionProcessor","SpriteFontContent",2065,70690,0.0572922
