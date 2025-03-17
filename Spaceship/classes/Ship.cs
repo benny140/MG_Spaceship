@@ -47,22 +47,25 @@ namespace Spaceship.Classes // Replace with your game's namespace
                 // Calculate movement based on arrow keys or left thumbstick
                 Vector2 movement = Vector2.Zero;
 
+                // Get the elapsed time since the last frame
+                float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
                 // Keyboard input
                 if (keyboardState.IsKeyDown(Keys.Left))
                 {
-                    movement.X -= Speed;
+                    movement.X -= Speed * deltaTime;
                 }
                 if (keyboardState.IsKeyDown(Keys.Right))
                 {
-                    movement.X += Speed;
+                    movement.X += Speed * deltaTime;
                 }
                 if (keyboardState.IsKeyDown(Keys.Up))
                 {
-                    movement.Y -= Speed;
+                    movement.Y -= Speed * deltaTime;
                 }
                 if (keyboardState.IsKeyDown(Keys.Down))
                 {
-                    movement.Y += Speed;
+                    movement.Y += Speed * deltaTime;
                 }
 
                 // Gamepad input (left thumbstick)
