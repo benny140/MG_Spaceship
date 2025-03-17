@@ -69,8 +69,8 @@ namespace Spaceship.Classes // Replace with your game's namespace
                 }
 
                 // Gamepad input (left thumbstick)
-                movement.X += gamePadState.ThumbSticks.Left.X * Speed;
-                movement.Y -= gamePadState.ThumbSticks.Left.Y * Speed; // Y axis is inverted
+                movement.X += gamePadState.ThumbSticks.Left.X * Speed * deltaTime;
+                movement.Y -= gamePadState.ThumbSticks.Left.Y * Speed * deltaTime; // Y axis is inverted
 
                 // Apply movement to the ship's position
                 Position += movement;

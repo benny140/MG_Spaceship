@@ -23,6 +23,7 @@ public class Game1 : Game
     // Ship
     private Texture2D textureShip;
     private Ship _ship;
+    private readonly float shipSpeed = 200f;
 
     // Asteroids
     private Texture2D textureAsteroid;
@@ -72,7 +73,7 @@ public class Game1 : Game
         _ship = new Ship(
             textureShip,
             new Vector2(screenWidth / 2, screenHeight / 2),
-            5f,
+            shipSpeed,
             screenWidth,
             screenHeight
         );
