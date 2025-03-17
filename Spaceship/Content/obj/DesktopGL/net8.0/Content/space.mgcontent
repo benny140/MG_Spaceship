@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/space.png</SourceFile>
-  <SourceTime>2025-03-12T21:28:15.1047009+11:00</SourceTime>
+  <SourceTime>2025-03-17T22:28:12.6388171+11:00</SourceTime>
   <DestFile>C:/Users/benja/Projects/MG_Spaceship/Spaceship/Content/bin/DesktopGL/Content/space.xnb</DestFile>
-  <DestTime>2025-03-15T18:38:39.8511967+11:00</DestTime>
+  <DestTime>2025-03-17T22:40:22.0657748+11:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-17T03:05:56+10:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

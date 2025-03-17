@@ -15,7 +15,7 @@ namespace Spaceship.Classes
         public Circle Bounds =>
             new Circle(
                 new Vector2(Position.X + Texture.Width / 2, Position.Y + Texture.Height / 2), // Center
-                Texture.Width / 2 // Radius
+                Texture.Width / 2.2f // Using 2.2 to make it a bit smaller
             );
 
         public Asteroid(Texture2D texture, Vector2 startPosition, float speed, int screenWidth)

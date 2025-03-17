@@ -13,8 +13,8 @@ public class Game1 : Game
     // Graphics
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    private readonly int screenHeight = 720;
-    private readonly int screenWidth = 1280;
+    private readonly int screenHeight = 1080;
+    private readonly int screenWidth = 1920;
 
     // Timer variables
     private float _elapsedTime;
@@ -23,6 +23,7 @@ public class Game1 : Game
     // Ship
     private Texture2D textureShip;
     private Ship _ship;
+    private readonly float shipSpeed = 250f;
 
     // Asteroids
     private Texture2D textureAsteroid;
@@ -36,6 +37,11 @@ public class Game1 : Game
     private bool _gameStarted;
     private bool _reset;
 
+    // Rumble variables
+    private float _rumbleTimeRemaining; // Time left for rumble
+    private const float RumbleDuration = 0.5f; // Duration of rumble in seconds
+    private const float RumbleIntensity = 1.0f; // Intensity of rumble (0.0f to 1.0f)
+
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -48,6 +54,7 @@ public class Game1 : Game
     protected override void Initialize()
     {
         _gameStarted = false; // Game starts in the "not started" state
+        _rumbleTimeRemaining = 0f; // Initialize rumble timer
 
         base.Initialize();
     }
@@ -66,7 +73,7 @@ public class Game1 : Game
         _ship = new Ship(
             textureShip,
             new Vector2(screenWidth / 2, screenHeight / 2),
-            5f,
+            shipSpeed,
             screenWidth,
             screenHeight
         );
@@ -106,18 +113,30 @@ public class Game1 : Game
         if (_gameStarted)
         {
             _elapsedTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            // Check for collision between ship and asteroid
+            foreach (var asteroid in _asteroidManager._asteroids)
+            {
+                if (Circle.Intersects(asteroid.Bounds, _ship.Bounds))
+                {
+                    _gameStarted = false;
+                    TriggerRumble(); // Trigger rumble on collision
+                }
+            }
         }
 
         // Update assets
         _ship.Update(gameTime, _gameStarted);
         _asteroidManager.Update(gameTime, _elapsedTime * (_gameStarted ? 1 : 0));
 
-        // Check for collision between ship and asteroid
-        foreach (var asteroid in _asteroidManager._asteroids)
+        // Update rumble timer
+        if (_rumbleTimeRemaining > 0)
         {
-            if (Circle.Intersects(asteroid.Bounds, _ship.Bounds))
+            _rumbleTimeRemaining -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (_rumbleTimeRemaining <= 0)
             {
-                _gameStarted = false;
+                // Stop rumble when time is up
+                GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
             }
         }
 
@@ -154,5 +173,12 @@ public class Game1 : Game
         _spriteBatch.End();
 
         base.Draw(gameTime);
+    }
+
+    // Method to trigger rumble
+    private void TriggerRumble()
+    {
+        _rumbleTimeRemaining = RumbleDuration; // Set rumble duration
+        GamePad.SetVibration(PlayerIndex.One, RumbleIntensity, RumbleIntensity); // Start rumble
     }
 }
