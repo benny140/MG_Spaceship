@@ -143,12 +143,12 @@ public class Game1 : Game
         {
             // Display "Press Enter to Start" message in the center of the screen
             string startMessage = "Press Enter to Start";
-            Vector2 textSize = fontTimer.MeasureString(startMessage);
+            Vector2 textSize = fontSpace.MeasureString(startMessage);
             Vector2 textPosition = new(
                 (GraphicsDevice.Viewport.Width - textSize.X) / 2,
                 (GraphicsDevice.Viewport.Height - textSize.Y) / 2
             );
-            _spriteBatch.DrawString(fontTimer, startMessage, textPosition, Color.White);
+            _spriteBatch.DrawString(fontSpace, startMessage, textPosition, Color.White);
         }
 
         _spriteBatch.End();
