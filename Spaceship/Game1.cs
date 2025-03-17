@@ -13,8 +13,8 @@ public class Game1 : Game
     // Graphics
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    private readonly int screenHeight = 720;
-    private readonly int screenWidth = 1280;
+    private readonly int screenHeight = 1080;
+    private readonly int screenWidth = 1920;
 
     // Timer variables
     private float _elapsedTime;
@@ -23,7 +23,7 @@ public class Game1 : Game
     // Ship
     private Texture2D textureShip;
     private Ship _ship;
-    private readonly float shipSpeed = 200f;
+    private readonly float shipSpeed = 250f;
 
     // Asteroids
     private Texture2D textureAsteroid;
