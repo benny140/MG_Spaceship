@@ -11,6 +11,13 @@ namespace Spaceship.Classes
         public int ScreenWidth { get; private set; } // Width of the screen (for boundary checks)
         public bool IsActive { get; private set; } // Flag to indicate if the asteroid is active
 
+        // Method to get the bounding circle of the asteroid.
+        public Circle Bounds =>
+            new Circle(
+                new Vector2(Position.X + Texture.Width / 2, Position.Y + Texture.Height / 2), // Center
+                Texture.Width / 2 // Radius
+            );
+
         public Asteroid(Texture2D texture, Vector2 startPosition, float speed, int screenWidth)
         {
             Texture = texture;
