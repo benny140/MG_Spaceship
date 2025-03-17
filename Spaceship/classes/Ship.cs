@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -42,23 +41,36 @@ namespace Spaceship.Classes // Replace with your game's namespace
                 // Get the current keyboard state
                 KeyboardState keyboardState = Keyboard.GetState();
 
-                // Calculate movement based on arrow keys
+                // Get the current game pad state (for player 1)
+                GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
+
+                // Calculate movement based on arrow keys or left thumbstick
+                Vector2 movement = Vector2.Zero;
+
+                // Keyboard input
                 if (keyboardState.IsKeyDown(Keys.Left))
                 {
-                    Position = new Vector2(Position.X - Speed, Position.Y);
+                    movement.X -= Speed;
                 }
                 if (keyboardState.IsKeyDown(Keys.Right))
                 {
-                    Position = new Vector2(Position.X + Speed, Position.Y);
+                    movement.X += Speed;
                 }
                 if (keyboardState.IsKeyDown(Keys.Up))
                 {
-                    Position = new Vector2(Position.X, Position.Y - Speed);
+                    movement.Y -= Speed;
                 }
                 if (keyboardState.IsKeyDown(Keys.Down))
                 {
-                    Position = new Vector2(Position.X, Position.Y + Speed);
+                    movement.Y += Speed;
                 }
+
+                // Gamepad input (left thumbstick)
+                movement.X += gamePadState.ThumbSticks.Left.X * Speed;
+                movement.Y -= gamePadState.ThumbSticks.Left.Y * Speed; // Y axis is inverted
+
+                // Apply movement to the ship's position
+                Position += movement;
 
                 // Keep the Ship within the screen bounds
                 Position = Vector2.Clamp(
